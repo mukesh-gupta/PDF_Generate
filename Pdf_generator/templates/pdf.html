@@ -1,0 +1,50 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{blog.name}}</title>
+
+    <style>
+        #cool{
+        background-color:black;
+        color:white;
+        padding:10px;
+        font-size:3.2rem;
+        text-align:center;
+        }
+
+        #look{
+        color:black;
+        padding:20px 10px;
+        font-size:1.2rem;
+        text-align:center;
+}
+
+
+    </style>
+</head>
+<body>
+
+<div id="cool">
+    <img  src="{{blog.image_data}}" height="200px" width="200px">
+    <p style="background-color:lightblue;padding-top:20px">{{blog|upper}}</p>
+</div>
+
+<section id="look">
+
+<div style="padding:20px;">
+     {% if blog.image %}
+    <img  src="{{blog.image.path}}" height="300px" width="500px">
+    {% endif %}
+
+    <h1 style="color:maroon;">{{blog.desc}}</h1>
+    <h1>{{blog.upload}}</h1>
+</div>
+
+</section>
+
+</body>
+</html>

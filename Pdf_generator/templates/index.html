@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" href="{% static 'css/Sheet.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <h1 id="box">PDF Generator
+        <a id="zip" href="{% url 'create' %}">Create</a>
+    </h1>
+
+</header>
+
+<section>
+<div class="container">
+
+   {% for blog in blogs %}
+    <div class="row">
+        <h1>{{blog.name}}</h1>
+        {% if blog.image %}
+        <img src="{{blog.image.url}}">
+        {% else %}
+        <img src="{{blog.imageURL}}" width="300px" height="200px">
+        {% endif %}
+
+        <p>{{blog.desc}}</p>
+        <p>{{blog.upload}}</p>
+
+        <ul class="high">
+            <li class="clip">
+                <a href="{% url 'page' blog.pk %}">Download</a>
+            </li>
+            <li class="cool">
+                <a href="{% url 'pdf' blog.pk %}">View PDF</a>
+            </li>
+        </ul>
+    </div>
+   {% endfor %}
+
+</div>
+
+</section>
+
+<footer>
+    <div class="low">
+        <h5 style="color:white">PDF Generator</h5>
+    </div>
+</footer>
+
+</body>
+</html>
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="{% static 'css/Sheet.css' %}">
+</head>
+<body style="background-color:lightblue;">
+
+<div style="margin:50px 20px;">
+     <a id="back" href="{% url 'index'  %}">Back</a>
+</div>
+
+<section id="semple" style="margin-top:20px;">
+
+<h1>Create</h1>
+    <div>
+
+       <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{forms.as_p}}
+           <button style="padding:5px 30px;background-color:#9ac234;cursor:pointer;color:blue;font-size:20px;" type="submit">save</button>
+       </form>
+    </div>
+</section>
+
+</body>
+</html>
